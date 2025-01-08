@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://bvuvmuapqgnb4"]
+[gd_scene load_steps=2 format=3 uid="uid://bvuvmuapqgnb4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2v20"]
 
 [node name="Test Scene" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Player Character" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Character"]
+shape = SubResource("CapsuleShape2D_m2v20")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player Character"]
