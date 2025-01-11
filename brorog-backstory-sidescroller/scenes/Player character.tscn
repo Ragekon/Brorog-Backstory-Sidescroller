@@ -1,12 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvk6e7463iqu7"]
 
-[ext_resource type="Script" path="res://scenes/player_character.gd" id="1_ko8x1"]
+[ext_resource type="Script" path="res://scenes/player character.gd" id="1_s24tw"]
 [ext_resource type="Texture2D" uid="uid://st30v886j1gh" path="res://Sprites/idle1.png" id="3_bdp1m"]
 [ext_resource type="Texture2D" uid="uid://lgwxc6lay6y3" path="res://Sprites/idle2.png" id="4_midxr"]
 [ext_resource type="Texture2D" uid="uid://doiy7blawxx81" path="res://Sprites/idle3.png" id="5_k6gje"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqosb"]
-height = 60.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ij1bo"]
 animations = [{
@@ -31,16 +28,24 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqosb"]
+radius = 3.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(0, -1)
-script = ExtResource("1_ko8x1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_hqosb")
+script = ExtResource("1_s24tw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(-1, 0)
+scale = Vector2(0.546875, 0.515625)
 sprite_frames = SubResource("SpriteFrames_ij1bo")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.901628
+frame_progress = 0.26577
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_hqosb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
